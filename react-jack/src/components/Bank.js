@@ -1,6 +1,6 @@
 import React from "react";
 
-const Bet = props => {
+const Bank = props => {
   const { bank } = props;
 
   return (
@@ -10,4 +10,4 @@ const Bet = props => {
   );
 };
 
-export default Bet;
+export default Bank;
