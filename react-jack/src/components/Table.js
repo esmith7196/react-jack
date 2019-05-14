@@ -7,7 +7,9 @@ const Table = props => {
   const deck = new decks.StandardDeck({ jokers: 0 });
   const [userCards, setUserCards] = useState([]);
   const [dealerCards, setDealerCards] = useState([]);
+
   deck.shuffleAll();
+  console.log("deck is: ", deck);
 
   const deal = () => {
     console.log("dealing");
@@ -21,6 +23,7 @@ const Table = props => {
       <div className="hands">
         <Playerhand hand={userCards} deal={deal} />
         {dealerCards.length ? <Dealerhand hand={dealerCards} /> : null}
+        <p>Cards remaining: {deck.remainingLength}</p>
       </div>
     </div>
   );
