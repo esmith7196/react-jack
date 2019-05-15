@@ -5,6 +5,7 @@ import axios from "axios";
 const Table = props => {
   // Make a request to get n number of decks
   const [deckId, getDeckId] = useState(null);
+  const [cards, getCards] = useState([]);
 
   useEffect(() => {
     axios
@@ -20,6 +21,7 @@ const Table = props => {
       .get(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
       .then(res => {
         console.log("deck response is: ", res);
+        getCards(res.data.cards);
       });
   }, [deckId]);
 
@@ -33,6 +35,9 @@ const Table = props => {
         <h2>Deck Info</h2>
         <ul>
           <li>The deck id is: {deckId}</li>
+          {cards.map(card => (
+            <p>{card.value}</p>
+          ))}
         </ul>
       </div>
     </div>
