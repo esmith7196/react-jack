@@ -15,10 +15,18 @@ const Table = props => {
       });
   }, []);
 
+  useEffect(() => {
+    axios
+      .get(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
+      .then(res => {
+        console.log("deck response is: ", res);
+      });
+  }, [deckId]);
+
   return (
     <div style={{ width: "100%" }}>
       <p>this is the table</p>
-      <div className="hands">
+      <div className="">
         <Playerhand />
 
         <p>Cards remaining: </p>
