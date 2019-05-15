@@ -8,12 +8,14 @@ const Game = () => {
   const [bank, setBank] = useState(10);
 
   const handleIncrement = () => {
-    setBet(bet + 1);
-    setBank(bank - 1);
+    if (bank > 0) {
+      setBet(bet + 1);
+      setBank(bank - 1);
+    }
   };
 
   const handleDecrement = () => {
-    if (bet > 0 && bank > 0) {
+    if (bet > 0 && bank >= 0) {
       setBet(bet - 1);
       setBank(bank + 1);
     }
