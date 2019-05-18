@@ -17,14 +17,18 @@ const Table = props => {
       });
   }, []);
 
-  useEffect(() => {
+  // useEffect(() => {
+
+  // }, [deckId]);
+
+  const initlalDraw = () => {
     axios
       .get(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
       .then(res => {
         console.log("deck response is: ", res);
         setCards(res.data.cards);
       });
-  }, [deckId]);
+  };
 
   useEffect(() => {
     let valueArr = [];
@@ -42,15 +46,12 @@ const Table = props => {
       }
       valueArr.push(parseInt(card.value));
     });
-    console.log(valueArr);
     sumCards(valueArr);
 
     function sumCards(item) {
       setPlayerSum(item.reduce(getSum, 0));
     }
   }, [cards]);
-
-  console.log("cards is: ", cards);
   function getSum(total, num) {
     return total + num;
   }
@@ -61,6 +62,7 @@ const Table = props => {
     <div style={{ width: "100%" }}>
       <p>this is the table</p>
       <div className="">
+        <button onClick={() => initlalDraw()}>Draw</button>
         <Playerhand cards={cards} total={playerSum} />
 
         <p>Cards remaining: </p>
