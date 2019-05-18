@@ -38,3 +38,24 @@
     transform: rotate(360deg);
   }
 }
+
+.card-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card-container img {
+  height: 250px;
+}
+
+#root
+  > div
+  > header
+  > div
+  > div:nth-child(1)
+  > div
+  > div
+  > div
+  > img:nth-child(2) {
+  margin-left: -120px;
+}
