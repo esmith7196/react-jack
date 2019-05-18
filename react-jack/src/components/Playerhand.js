@@ -10,6 +10,7 @@ const Playerhand = props => {
           <img src={card.image} alt={card.value} />
         ))}
       </div>
+      <p>The total is: {props.total}</p>
     </div>
   );
 };

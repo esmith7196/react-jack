@@ -61,7 +61,7 @@ const Table = props => {
     <div style={{ width: "100%" }}>
       <p>this is the table</p>
       <div className="">
-        <Playerhand cards={cards} />
+        <Playerhand cards={cards} total={playerSum} />
 
         <p>Cards remaining: </p>
         <h2>Deck Info</h2>
